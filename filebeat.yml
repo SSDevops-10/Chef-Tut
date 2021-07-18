@@ -7,6 +7,7 @@ end
 template "/etc/filebeat/filebeat.yml" do
 output.elasticsearch:
   hosts: ["65.0.178.81:9200"]
+  index: "test-filebeat"
 setup.kibana:
   host: "65.0.178.81/status"
   username: "kibanaadmin"  
