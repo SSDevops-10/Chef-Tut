@@ -1,0 +1,8 @@
+#CookBook :: Install filebeat
+
+package "filebeat" do
+action :install
+end
+
+service "filebeat" do
+action [:enable, :start]
