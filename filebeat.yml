@@ -4,5 +4,16 @@ package "filebeat" do
 action :install
 end
 
+template "/etc/filebeat/filebeat.yml" do
+output.elasticsearch:
+  hosts: ["65.0.178.81:9200"]
+setup.kibana:
+  host: "65.0.178.81/status"
+  username: "kibanaadmin"  
+  password: "12345"
+output.logstash:
+  hosts: ["65.0.178.81:5044"]
+done
+
 service "filebeat" do
 action [:enable, :start]
