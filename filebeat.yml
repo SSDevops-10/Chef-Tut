@@ -1,10 +1,13 @@
 #CookBook :: Install filebeat
 
-package "filebeat" do
-action :install
+bash 'filebeat-installation' do
+  user 'root'
+  curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.8.17-linux-x86_64.tar.gz 
+  tar xzvf filebeat-6.8.17-linux-x86_64.tar.gz
+  cd filebeat-6.8.17-linux-x86_64
 end
 
-template "/etc/filebeat/filebeat.yml" do
+template "/home/ubuntu/filebeat-6.8.17-linux-x86_64/filebeat.yml" do
 filebeat.inputs:
 
 # Each - is an input. Most options can be set at the input level, so
